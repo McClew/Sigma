@@ -3,8 +3,8 @@ id: 7d632a1e-8f21-4b1a-982c-d69123f1a234
 status: test
 description: |
   Detects when a user moves items to the deleted items folder in Exchange. 
-  This can be indicative of an adversary or malicious insider attempting to hide their tracks after unauthorized access or sensitive data interaction.
-author: Gemini
+  This can be indicative of a threat actor attempting to hide their tracks after unauthorised access or sensitive data interaction.
+author: Rhys McClew
 date: 2026-02-10
 tags:
     - attack.defense_evasion
@@ -14,9 +14,7 @@ logsource:
     product: m365
 detection:
     selection:
-        eventSource: Exchange
-        eventName: 'MoveToDeletedItems'
-        status: Succeeded
+        operation: 'MoveToDeletedItems'
     condition: selection
 falsepositives:
     - Regular user maintenance of mailbox
